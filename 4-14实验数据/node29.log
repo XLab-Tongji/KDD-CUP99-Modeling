@@ -1,0 +1,16 @@
+start 1 -> 14
+1 start normal 1523625690 node29 21:21:31
+1 stop normal 1523625990 node29 21:26:31
+2 start cpu 1523625990 node29 21:26:31
+2 stop cpu 1523626290 node29 21:31:31
+3 start normal 1523626290 node29 21:31:31
+3 stop normal 1523626590 node29 21:36:31
+4 start mem 1523626590 node29 21:36:31
+4 stop mem 1523626890 node29 21:41:32
+5 start normal 1523626890 node29 21:41:32
+5 stop normal 1523627190 node29 21:46:32
+6 start io 1523627190 node29 21:46:32
+6 stop io 1523627490 node29 21:51:32
+7 start normal 1523627490 node29 21:51:32
+7 stop normal 1523627790 node29 21:56:32
+end 1 -> 14

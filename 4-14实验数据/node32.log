@@ -1,0 +1,16 @@
+start 1 -> 14
+1 start normal 1523628265 node32 22:04:29
+1 stop normal 1523628565 node32 22:09:29
+2 start cpu 1523628565 node32 22:09:29
+2 stop cpu 1523628865 node32 22:14:29
+3 start normal 1523628865 node32 22:14:29
+3 stop normal 1523629165 node32 22:19:29
+4 start mem 1523629165 node32 22:19:29
+4 stop mem 1523629465 node32 22:24:29
+5 start normal 1523629465 node32 22:24:29
+5 stop normal 1523629765 node32 22:29:29
+6 start io 1523629765 node32 22:29:29
+6 stop io 1523630065 node32 22:34:29
+7 start normal 1523630065 node32 22:34:29
+7 stop normal 1523630365 node32 22:39:29
+end 1 -> 14
