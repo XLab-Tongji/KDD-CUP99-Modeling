@@ -13,7 +13,6 @@ hosts = [
 ]
 
 inject_types = [
-    'none',
     'cpu',
     'mem',
     'io',
@@ -58,7 +57,7 @@ def main():
         # do injection
         print host, inject_type, inject_duration, timestamp, timestamp_human
         with open('stress.log.tmp', 'a+') as file:
-            file.write("%s %s %s %s %s\n" % (host, inject_type, inject_duration, timestamp, timestamp_human))
+            file.write("%s, %s, %s, %s, %s\n" % (host, inject_type, inject_duration, timestamp, timestamp_human))
 
         if inject_type == 'none':
             time.sleep(inject_duration * 60)
@@ -74,6 +73,7 @@ def main():
         
         if time_past > time_expiry:
             break
+        time.sleep(1)
     os.system("mv stress.log.tmp stress-%s.log" % time.strftime("%Y-%m-%d", time.localtime()))
     print 'done...'
 
