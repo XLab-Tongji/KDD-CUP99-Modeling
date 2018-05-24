@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: stress-ng
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: stress-ng
+        snmp: enabled
+    spec:
+      containers:
+      - image: "rainlf/clearwater-stress-ng:latest"
+        imagePullPolicy: IfNotPresent
+        name: stress-ng
+        ports:
+        - containerPort: 22
+        envFrom:
+        - configMapRef:
+              name: env-vars
+        env:
+        - name: MY_POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+      volumes:
+      - name: sproutlogs
+        emptyDir: {}
+      restartPolicy: Always

@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: bono
 spec:
-  type: LoadBalancer
+  clusterIP: None
   ports:
   - name: "3478"
     port: 3478

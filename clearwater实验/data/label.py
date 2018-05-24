@@ -35,42 +35,9 @@ def parse_log(file):
             lines.append(line[:-1])
     
     for line in lines:
-        if '1 start normal' in line:
-            start1 = line.split(' ')[3]
-        elif '1 stop normal' in line:
-            stop1 = line.split(' ')[3]
-        elif '2 start cpu' in line:
-            start2 = line.split(' ')[3]
-        elif '2 stop cpu' in line:
-            stop2 = line.split(' ')[3]
-        elif '3 start normal' in line:
-            start3 = line.split(' ')[3]
-        elif '3 stop normal' in line:
-            stop3 = line.split(' ')[3]
-        elif '4 start mem' in line:
-            start4 = line.split(' ')[3]
-        elif '4 stop mem' in line:
-            stop4 = line.split(' ')[3]
-        elif '5 start normal' in line:
-            start5 = line.split(' ')[3]
-        elif '5 stop normal' in line:
-            stop5 = line.split(' ')[3]
-        elif '6 start io' in line:
-            start6 = line.split(' ')[3]
-        elif '6 stop io' in line:
-            stop6 = line.split(' ')[3]
-        elif '7 start normal' in line:
-            start7 = line.split(' ')[3]
-        elif '7 stop normal' in line:
-            stop7 = line.split(' ')[3]
- 
-    rule.append({'start':start1, 'stop':stop1, 'label':'normal'})
-    rule.append({'start':start2, 'stop':stop2, 'label':'cpu'})
-    rule.append({'start':start3, 'stop':stop3, 'label':'normal'})
-    rule.append({'start':start4, 'stop':stop4, 'label':'mem'})
-    rule.append({'start':start5, 'stop':stop5, 'label':'normal'})
-    rule.append({'start':start6, 'stop':stop6, 'label':'io'})
-    rule.append({'start':start7, 'stop':stop7, 'label':'normal'})
+        context = line.split(" ")
+        rule.append({'start': context[3], 'duration': context[2], 'type': context[1]})
+
     return rule
 
 
@@ -81,20 +48,18 @@ def check_stage(line, rule):
     time = line[1]
     label = None
     for obj in rule:
-        if long(time) >= long(obj['start']) and long(time) <= long(obj['stop']):
-            label = obj['label']
+        if long(time) >= long(obj['start']) and long(time) <= long(obj['start']) + long(obj['duration']) * 60:
+            label = obj['type']
 
     if label != None:
-        if label == 'normal':
-            line += ['1', '0', '0', '0']
-        elif label == 'cpu':
-            line += ['0', '1', '0', '0']
+        if label == 'cpu':
+            line += ['1', '0', '0']
         elif label == 'mem':
-            line += ['0', '0', '1', '0']
+            line += ['0', '1', '0']
         elif label == 'io':
-            line += ['0', '0', '0', '1']
+            line += ['0', '0', '1']
     else:
-        line += ['1', '0', '0', '0']
+        line += ['0', '0', '0']
     return line
 
 
@@ -104,7 +69,7 @@ def generate_label_file(lines, rule):
     '''
     label_lines = []
     # 首行
-    line1 = lines[0] + [u'normal', u'cpu', u'mem', u'io']
+    line1 = lines[0] + [u'cpu', u'mem', u'io']
     label_lines.append(line1)
     
     # 打标签

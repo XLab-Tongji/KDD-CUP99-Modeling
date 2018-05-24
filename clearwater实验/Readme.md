@@ -23,7 +23,7 @@ kubectl apply -f cw
 docker exec -it $(docker ps |grep clearwater-cassandra |awk {'print $1'}) bash
 
 ## 生成用户（例：20000）
-/usr/share/clearwater/crest-prov/src/metaswitch/crest/tools/stress_provision.sh 20000
+/usr/share/clearwater/crest-prov/src/metaswitch/crest/tools/stress_provision.sh 10000
 
 # 压测
 ## 进入node32
@@ -36,11 +36,11 @@ docker exec -it $(docker ps |grep clearwater-sprout |awk {'print $1'} | head -1)
 apt-get update
 apt-get install clearwater-sip-stress-coreonly -y
 
-## 开始压测（例：20000用户，100分钟，clearwater-sprout容器ip:10.42.56.48）
+## 开始压测（例：20000用户，100分钟，clearwater-sprout容器ip:10.42.13.205）
 /usr/share/clearwater/bin/run_stress default.svc.cluster.local \
             20000 100  --initial-reg-rate 100 \
-            --icscf-target 10.42.56.48:5052 \
-            --scscf-target 10.42.56.48:5054
+            --icscf-target 10.42.13.205:5052 \
+            --scscf-target 10.42.13.205:5054
 ```
 3. 随机注入故障
 ```

@@ -1,0 +1,56 @@
+
+/usr/share/clearwater/bin/run_stress default.svc.cluster.local \
+            1000 10  --initial-reg-rate 100 \
+            --multiplier 450 
+79%
+
+/usr/share/clearwater/bin/run_stress default.svc.cluster.local \
+            800 10  --initial-reg-rate 100 \
+            --multiplier 450 
+93%
+
+/usr/share/clearwater/bin/run_stress default.svc.cluster.local \
+            600 10  --initial-reg-rate 100 \
+            --multiplier 450 
+96%
+
+/usr/share/clearwater/bin/run_stress default.svc.cluster.local \
+            400 10  --initial-reg-rate 100 \
+            --multiplier 450 
+100%
+
+/usr/share/clearwater/bin/run_stress default.svc.cluster.local \
+            500 10  --initial-reg-rate 100 \
+            --multiplier 450 
+99%
+
+
+/usr/share/clearwater/bin/run_stress default.svc.cluster.local \
+            400 2  --initial-reg-rate 100 \
+            --multiplier 450 
+100%
+
+/usr/share/clearwater/bin/run_stress default.svc.cluster.local \
+            600 2  --initial-reg-rate 100 \
+            --multiplier 450 
+99%
+
+/usr/share/clearwater/bin/run_stress default.svc.cluster.local \
+            600 5  --initial-reg-rate 100 \
+            --multiplier 450 
+99%
+
+/usr/share/clearwater/bin/run_stress default.svc.cluster.local \
+            600 10  --initial-reg-rate 100 \
+            --multiplier 450 
+97%
+
+/usr/share/clearwater/bin/run_stress default.svc.cluster.local \
+            500 60  --initial-reg-rate 100 \
+            --multiplier 450 
+99%
+
+/usr/share/clearwater/bin/run_stress default.svc.cluster.local \
+            600 60  --initial-reg-rate 100 \
+            --multiplier 450 
+95%
