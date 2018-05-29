@@ -74,11 +74,12 @@ def main():
         elif inject_type == 'io':
             cmd = "ssh root@%s stress -i 100 -t %s > /dev/null 2>&1" % (host, inject_duration * 60)
             # proc = Popen(cmd)
+            os.system(cmd)
         
         if time_past > time_expiry:
-            break
-        # 3min
-        # time.sleep(3)
+            break 
+        # 1min
+        time.sleep(1)
 
     # run after end
     os.system("mv stress.log.tmp stress-%s.log" % time.strftime("%Y-%m-%d", time.localtime()))

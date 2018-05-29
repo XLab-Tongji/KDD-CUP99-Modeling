@@ -6,6 +6,22 @@ import xlwt
 import argparse
 
 
+target = ['bono', 'homestead', 'sprout']
+src = 'raw'
+dest = 'csv'
+
+def get_src_data_file(target):
+    return '%s/%s-data.xlsx' % (src, target)
+
+def get_src_log_file(target):
+    return '%s/%s-stress.log' % (src, target)
+
+def get_dest_data_file(target):
+    return '%s/%s-data.csv' % (dest, target)
+
+def fun():
+    pass
+
 def parse_xlsx(file):
     '''
     读入excel到lines，lines[0]为titles
