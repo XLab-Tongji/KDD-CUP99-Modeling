@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: stress-ng
 spec:
-  replicas: 1
+  replicas: 1s
   template:
     metadata:
       labels:

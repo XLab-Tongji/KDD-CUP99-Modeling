@@ -10,6 +10,8 @@ spec:
         service: stress-ng
         snmp: enabled
     spec:
+      nodeSelector:
+        compoentType: "stress"
       containers:
       - image: "rainlf/clearwater-stress-ng:latest"
         imagePullPolicy: IfNotPresent
