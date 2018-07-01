@@ -1,5 +1,5 @@
 # Connect 205 environment through socket tunnel
-1. Install shadowsocksX-NG client from [here](https://github.com/shadowsocks/ShadowsocksX-NG/releases/)
+1. Install shadowsocksX-NG Mac client from [here](https://github.com/shadowsocks/ShadowsocksX-NG/releases/), or Windows clinet form [here](https://github.com/shadowsocks/shadowsocks-windows/releases).
 ![](./img/shadowsocks.png)
 
 2. Configure the shadowsocks
